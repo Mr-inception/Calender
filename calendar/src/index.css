@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 20 15% 15%;
+
+    --card: 40 30% 99%;
+    --card-foreground: 20 15% 15%;
+
+    --popover: 40 30% 99%;
+    --popover-foreground: 20 15% 15%;
+
+    --primary: 24 70% 45%;
+    --primary-foreground: 40 33% 97%;
+
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 20 15% 25%;
+
+    --muted: 35 20% 93%;
+    --muted-foreground: 20 10% 55%;
+
+    --accent: 24 60% 50%;
+    --accent-foreground: 40 33% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 24 70% 45%;
+
+    --radius: 0.5rem;
+
+    --calendar-range: 24 70% 45%;
+    --calendar-weekend: 20 12% 42%;
+    --calendar-outside: 20 8% 75%;
+    --calendar-hover: 35 40% 90%;
+    --calendar-notes-dot: 30 90% 55%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 20 15% 10%;
+    --foreground: 35 20% 90%;
+    --card: 20 15% 12%;
+    --card-foreground: 35 20% 90%;
+    --popover: 20 15% 12%;
+    --popover-foreground: 35 20% 90%;
+    --primary: 24 70% 50%;
+    --primary-foreground: 20 15% 10%;
+    --secondary: 20 15% 18%;
+    --secondary-foreground: 35 20% 90%;
+    --muted: 20 12% 20%;
+    --muted-foreground: 30 10% 60%;
+    --accent: 24 60% 55%;
+    --accent-foreground: 20 15% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 20 12% 22%;
+    --input: 20 12% 22%;
+    --ring: 24 70% 50%;
+    --calendar-range: 24 70% 50%;
+    --calendar-weekend: 30 10% 60%;
+    --calendar-outside: 20 8% 40%;
+    --calendar-hover: 20 15% 18%;
+    --calendar-notes-dot: 30 90% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .ruled-paper {
+    background-image: repeating-linear-gradient(transparent, transparent 27px, #e5e7eb 27px, #e5e7eb 28px);
+    line-height: 28px;
+  }
+  .dark .ruled-paper {
+    background-image: repeating-linear-gradient(transparent, transparent 27px, #374151 27px, #374151 28px);
+  }
+}
