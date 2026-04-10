@@ -29,9 +29,7 @@ const HeroPanel = ({ currentDate, onPrev, onNext, onToday }: HeroPanelProps) => 
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Optional: add a size check to not break localStorage (e.g., 5MB max)
+    if (!file) return;
     if (file.size > 5 * 1024 * 1024) {
       toast.error("Image is too large. Please use an image under 5MB.");
       return;
@@ -47,8 +45,7 @@ const HeroPanel = ({ currentDate, onPrev, onNext, onToday }: HeroPanelProps) => 
       });
       toast.success("Month image updated!");
     };
-    reader.readAsDataURL(file);
-    // Reset input
+    reader.readAsDataURL(file);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -72,7 +69,7 @@ const HeroPanel = ({ currentDate, onPrev, onNext, onToday }: HeroPanelProps) => 
       />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent" />
 
-      {/* Image Upload Actions - Visible on Hover */}
+      {}
       <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
         {customImages[monthIndex] && (
           <button

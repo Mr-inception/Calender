@@ -80,7 +80,7 @@ const CalendarGrid = ({
 
   return (
     <div className="p-4 sm:p-6">
-      {/* Weekday headers */}
+      {}
       <div className="grid grid-cols-7 mb-2">
         {WEEKDAYS.map((d) => (
           <div
@@ -92,7 +92,7 @@ const CalendarGrid = ({
         ))}
       </div>
 
-      {/* Day cells */}
+      {}
       <div className="grid grid-cols-7">
         {days.map((day, idx) => {
           const inMonth = isSameMonth(day, currentDate);
@@ -121,7 +121,7 @@ const CalendarGrid = ({
                 rangeStart || rangeEnd
                   ? { backgroundColor: themeColor }
                   : inRange
-                    ? { backgroundColor: `${themeColor}33` } // Add transparency
+                    ? { backgroundColor: `${themeColor}33` } 
                     : {}
               }
             >
@@ -129,12 +129,12 @@ const CalendarGrid = ({
                 {format(day, "d")}
               </span>
 
-              {/* Today dot */}
+              {}
               {today && !rangeStart && !rangeEnd && (
                 <span className="absolute bottom-1 w-1 h-1 rounded-full bg-primary" />
               )}
 
-              {/* Notes dot */}
+              {}
               {noted && (
                 <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-calendar-notes-dot" />
               )}

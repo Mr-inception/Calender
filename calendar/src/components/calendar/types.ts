@@ -8,18 +8,18 @@ export interface CalendarState {
 }
 
 export const MONTH_COLORS: Record<number, string> = {
-  0: "#0284c7", // January - blue
-  1: "#0369a1", // February - dark blue
-  2: "#15803d", // March - green
-  3: "#be185d", // April - pink
-  4: "#0f766e", // May - teal
-  5: "#4d7c0f", // June - lime/green
-  6: "#eab308", // July - yellow
-  7: "#ea580c", // August - orange
-  8: "#b45309", // September - amber/brown
-  9: "#c2410c", // October - orange/red
-  10: "#4b5563", // November - gray
-  11: "#1d4ed8", // December - blue
+  0: "#0284c7", 
+  1: "#0369a1", 
+  2: "#15803d", 
+  3: "#be185d", 
+  4: "#0f766e", 
+  5: "#4d7c0f", 
+  6: "#eab308", 
+  7: "#ea580c", 
+  8: "#b45309", 
+  9: "#c2410c", 
+  10: "#4b5563", 
+  11: "#1d4ed8", 
 };
 
 export const MONTH_IMAGES: Record<number, string> = {

@@ -11,12 +11,10 @@ const NotesPanel = ({
   currentDate,
   notes,
   onDeleteNote,
-}: NotesPanelProps) => {
-  // Filter notes to only those belonging to the current month view
-  // Keys are format yyyy-MM-dd or yyyy-MM-dd_yyyy-MM-dd
+}: NotesPanelProps) => {
   const monthlyTasks = Object.entries(notes).filter(([key, value]) => {
     if (!value) return false;
-    const keyMonth = key.substring(0, 7); // yyyy-MM
+    const keyMonth = key.substring(0, 7); 
     return keyMonth === format(currentDate, "yyyy-MM");
   }).sort();
 
@@ -30,8 +28,7 @@ const NotesPanel = ({
         {monthlyTasks.length === 0 ? (
           <p className="text-sm text-muted-foreground italic">No tasks or notes for this month.</p>
         ) : (
-          monthlyTasks.map(([key, value]) => {
-            // format standard dates
+          monthlyTasks.map(([key, value]) => {
             let label = key;
             if (key.includes("_")) {
               const [s, e] = key.split("_");

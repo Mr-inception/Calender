@@ -57,9 +57,7 @@ const WallCalendar = () => {
     } catch {
       return {};
     }
-  });
-
-  // Derive the current note key
+  });
   const noteKey = useMemo(() => {
     if (startDate && endDate) {
       const s = isBefore(endDate, startDate) ? endDate : startDate;
@@ -124,34 +122,25 @@ const WallCalendar = () => {
       });
     },
     [noteKey]
-  );
-
-  // Collect all individual date keys that have notes (for dot indicators)
+  );
   const notesKeys = useMemo(() => {
     const keys = new Set<string>();
     for (const key of Object.keys(notes)) {
       if (!notes[key]) continue;
-      if (key.includes("_")) {
-        // Range key — we just mark the start date for simplicity
+      if (key.includes("_")) {
         const [start] = key.split("_");
         keys.add(start);
-      } else if (key.length === 10) {
-        // Single date
+      } else if (key.length === 10) {
         keys.add(key);
-      }
-      // Monthly keys (yyyy-MM) won't match individual dates
+      }
     }
     return keys;
-  }, [notes]);
-
-  // Active alarm checker
+  }, [notes]);
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
       const currentStringTime = format(now, "HH:mm");
-      const todayKey = format(now, "yyyy-MM-dd");
-
-      // If we stored an alarm for today and it matches the current time
+      const todayKey = format(now, "yyyy-MM-dd");
       if (alarms[todayKey] === currentStringTime) {
         toast(`⏰ Reminder for ${todayKey}`, {
           description: "Your scheduled alarm is ringing!",
@@ -160,9 +149,7 @@ const WallCalendar = () => {
             onClick: () => console.log("Alarm dismissed"),
           },
           duration: 10000,
-        });
-
-        // Remove the alarm so it only rings once
+        });
         setAlarms((prev) => {
           const next = { ...prev };
           delete next[todayKey];
@@ -170,32 +157,28 @@ const WallCalendar = () => {
           return next;
         });
       }
-    }, 60000); // check every minute
+    }, 60000); 
 
     return () => clearInterval(interval);
   }, [alarms]);
 
   const handleDateClick = useCallback(
     (day: Date) => {
-      if (!selecting && !startDate) {
-        // First click
+      if (!selecting && !startDate) {
         setStartDate(day);
         setEndDate(null);
         setSelecting(true);
       } else if (selecting && startDate) {
-        if (isSameDay(day, startDate)) {
-          // Click same date — finalize as single day
+        if (isSameDay(day, startDate)) {
           setEndDate(day);
           setSelecting(false);
           setTaskDialogOpen(true);
-        } else {
-          // Second click — finalize range
+        } else {
           setEndDate(day);
           setSelecting(false);
           setTaskDialogOpen(true);
         }
-      } else {
-        // Already have a range, start new selection
+      } else {
         setStartDate(day);
         setEndDate(null);
         setSelecting(true);
@@ -215,9 +198,7 @@ const WallCalendar = () => {
 
   const handlePrev = () => setCurrentDate((d) => subMonths(d, 1));
   const handleNext = () => setCurrentDate((d) => addMonths(d, 1));
-  const handleToday = () => setCurrentDate(startOfMonth(new Date()));
-
-  // Normalize range so start < end for display
+  const handleToday = () => setCurrentDate(startOfMonth(new Date()));
   const displayStart = useMemo(() => {
     if (!startDate || !endDate) return startDate;
     return isBefore(endDate, startDate) ? endDate : startDate;
@@ -261,7 +242,7 @@ const WallCalendar = () => {
         </div>
       </div>
 
-      {/* Task Creation Popup */}
+      {}
       <Dialog open={taskDialogOpen} onOpenChange={setTaskDialogOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
